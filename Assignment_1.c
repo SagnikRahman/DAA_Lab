@@ -19,7 +19,6 @@ scanf("%d",&a[i]);
 printf("Enter sum value(X):\n");
 scanf("%d",&x);
 
-
 i=0;j=n-1;
 while(i<j)
 {
