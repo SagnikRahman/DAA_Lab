@@ -1,37 +1,33 @@
 #include <stdio.h>
-#include <stdlib.h>
 
-int main()
-{
-int n;
-printf("Enter the length of array\n");
-scanf("%d",&n);
-int* a=(int*)malloc(n*4);
-
-printf("Enter the elements:\n");
-
-int i=0,x,j;
-for(i=0;i<n;i++)
-{
-scanf("%d",&a[i]);
-}
-
-printf("Enter sum value(X):\n");
-scanf("%d",&x);
-
-i=0;j=n-1;
-while(i<j)
-{
- if(a[i]+a[j]==x)
-    {
-    printf("%d+%d=%d\n",a[i],a[j],x);
-    i++;
-    j--;
+int main() {
+    int n, X;
+    printf("Enter the size of the sorted array: ");
+    scanf("%d", &n);
+    int arr[n];
+    printf("Enter the sorted array elements:\n");
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
     }
- else if(a[i]+a[j]<x)
-    i++;
-  else
-    j--;
-}//while
-  
-}//main
+    printf("Enter the target sum (X): ");
+    scanf("%d", &X);
+
+    int left = 0;
+    int right = n - 1;
+
+    while (left < right) {
+        int currentSum = arr[left] + arr[right];
+        if (currentSum == X) {
+            printf("Pair found: %d and %d\n", arr[left], arr[right]);
+            return 0;
+        } else if (currentSum < X) {
+            left++;
+        } else {
+            right--;
+        }
+    }
+
+    printf("Pair not found\n");
+
+    return 0;
+}
